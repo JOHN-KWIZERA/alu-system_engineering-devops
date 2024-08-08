@@ -13,11 +13,19 @@ server_config=\
 frontend john-frontend
         bind *:80
         mode http
+<<<<<<< HEAD
         default_backend oreste-backend
 backend john-backend
         balance roundrobin
         server 6238-web-01 :80 check
         server 6238-web-02 98.80.15.59:80 check
+=======
+        default_backend john-backend
+backend john-backend
+        balance roundrobin
+        server 6205-web-01 3.87.158.145:80 check
+        server 6205-web-02 34.224.70.247:80 check
+>>>>>>> e591749d6455f242a3614016389c980b334d77fe
 "
 echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
 
